@@ -98,13 +98,10 @@ public class Robot extends IterativeRobot {
 					accurateDrive(navx, 0.6, -90, 2);
 				}
 				else if(navx.getYaw() < 90) {
-					//stick.setRumble(RumbleType.kRightRumble, 1);
 					SmartDashboard.putString("Mode", "Turning right");
-					System.out.println(navx.getYaw());
 					myRobot.tankDrive(0.5, -0.5);
 				}
 				else {
-					stick.setRumble(RumbleType.kRightRumble, 0);
 					SmartDashboard.putString("Mode", "Stopped");
 					myRobot.stopMotor();
 				}
@@ -118,7 +115,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		myRobot.arcadeDrive(-stick.getY(), stick.getX());
-		//myRobot.tankDrive(stick.getRawAxis(2), stick.getRawAxis(3));
 		
 		climber.set(-stick.getRawAxis(3));
 	}
